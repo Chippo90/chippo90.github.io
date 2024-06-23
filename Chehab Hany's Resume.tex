@@ -1,0 +1,263 @@
+%%%%
+% Chehab Hanys Resume
+%%%%
+% Author: Chehab Hany
+% License: CC-BY-4
+% - https://creativecommons.org/licenses/by/4.0/legalcode.txt
+%%%%
+
+\documentclass[letterpaper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%
+%% BEGIN_FILE: mteck.sty
+%% NOTE: Everything between here and END_FILE can
+%% be relocated to "mteck.sty" and then included with:
+%\usepackage{mteck}
+
+% Dependencies
+% NOTE: Some packages (lastpage, hyperref) require second build!
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{bookmark}
+\usepackage{lastpage}
+
+% Sans-Serif
+%\usepackage[sfdefault]{FiraSans}
+%\usepackage[sfdefault]{roboto}
+%\usepackage[sfdefault]{noto-sans}
+%\usepackage[default]{sourcesanspro}
+
+% Serif
+\usepackage{CormorantGaramond}
+\usepackage{charter}
+
+% Colors
+% Use with \color{Name}
+% Can wrap entire heading with {\color{accent} [...] }
+\usepackage{xcolor}
+\definecolor{accentTitle}{HTML}{0e6e55}
+\definecolor{accentText}{HTML}{0e6e55}
+\definecolor{accentLine}{HTML}{a16f0b}
+
+% Misc. Options
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+
+% Adjust Margins
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\footskip}{3.7pt}
+\raggedbottom
+\raggedright
+
+% ATS Readability
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+%-----------------%
+% Custom Commands %
+%-----------------%
+
+% Centered title along with subtitle between HR
+% Usage: \documentTitle{Name}{Details}
+\newcommand{\documentTitle}[2]{
+  \begin{center}
+    {\Huge\scshape\color{accentTitle} #1}
+    \vspace{10pt}
+    {\color{accentLine} \hrule}
+    \vspace{2pt}
+    %{\footnotesize\color{accentTitle} #2}
+    \footnotesize{#2}
+    \vspace{2pt}
+    {\color{accentLine} \hrule}
+  \end{center}
+}
+
+% Create a footer with correct padding
+% Usage: \documentFooter{\thepage of X}
+\newcommand{\documentFooter}[1]{
+  \setlength{\footskip}{10.25pt}
+  \fancyfoot[C]{\footnotesize #1}
+}
+
+% Simple wrapper to set up page numbering
+% Usage: \numberedPages
+% WARNING: Must run pdflatex twice!
+\newcommand{\numberedPages}{
+  \documentFooter{\thepage/\pageref{LastPage}}
+}
+
+% Section heading with horizontal rule
+% Usage: \section{Title}
+\titleformat{\section}{
+  \vspace{-5pt}
+  \color{accentText}
+  \scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{accentLine}\titlerule]
+
+% Section heading with separator and content on same line
+% Usage: \tinysection{Title}
+\newcommand{\tinysection}[1]{
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}
+  {\scshape\large{\bfseries\color{accentText}#1} {\color{accentLine} |}}
+}
+
+% Indented line with arguments left/right aligned in document
+% Usage: \heading{Left}{Right}
+\newcommand{\heading}[2]{
+  \hspace{10pt}#1\hfill#2\\
+}
+
+% Adds \textbf to \heading
+\newcommand{\headingBf}[2]{
+  \heading{\textbf{#1}}{\textbf{#2}}
+}
+
+% Adds \textit to \heading
+\newcommand{\headingIt}[2]{
+  \heading{\textit{#1}}{\textit{#2}}
+}
+
+% Template for itemized lists
+% Usage: \begin{resume_list} [items] \end{resume_list}
+\newenvironment{resume_list}{
+  \vspace{-7pt}
+  \begin{itemize}[itemsep=-2px, parsep=1pt, leftmargin=30pt]
+}{
+  \end{itemize}
+  %\vspace{-2pt}
+}
+
+% Formats an item to use as an itemized title
+% Usage: \itemTitle{Title}
+\newcommand{\itemTitle}[1]{
+  \item[] \underline{#1}\vspace{4pt}
+}
+
+% Bullets used in itemized lists
+\renewcommand\labelitemi{--}
+
+%% END_FILE: mteck.sty
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%===================%
+% Chehab Hany's Resume %
+%===================%
+
+%\numberedPages % NOTE: lastpage requires a second build
+%\documentFooter{\thepage of 2} % Does similar without using lastpage
+\begin{document}
+
+  %---------%
+  % Heading %
+  %---------%
+
+  \documentTitle{Chehab Hany}{
+    % Web Version
+    %\raisebox{-0.05\height} \faPhone\ [redacted - web copy] ~
+    %\raisebox{-0.15\height} \faEnvelope\ [redacted - web copy] ~
+    %%
+    \href{tel:01522-41777-57}{
+      \raisebox{-0.05\height} \faPhone\ +49-1522-41-77757} ~
+    \href{mailto:chehabhany90@gmail.com}{
+      \raisebox{-0.15\height} \faEnvelope\ chehabhany90@gmail.com} ~
+    \href{https://linkedin.com/in/chehabhany/}{
+      \raisebox{-0.15\height} \faLinkedin\ linkedin.com/in/chehabhany} ~
+    \href{https://github.com/chippo90}{
+      \raisebox{-0.15\height} \faGithub\ github.com/chippo90}
+  }
+
+  %---------%
+  % Objective %
+  %---------%
+
+  \tinysection{Objective}
+  To gain valuable experience in a qualified company, where I can invest and develop my skills, experience and potential I rewarded and challenging a new position with career development based on performance.
+
+  %------------%
+  % Experience %
+  %------------%
+
+  \section{Professional Career}
+
+  \headingBf{Asian Paints Berger - Qatar}{Jun 2021 -- Apr 2024}
+  \headingIt{Senior Executive - Projects}{}
+  \begin{resume_list}
+    \item Created new customers by planning, frequent visits to potential customers and preparing quotations to increase market share.
+    \item Worked with consultants, specifiers and contractors to get our materials specified and approved in each project.
+    \item Followed up with customers on payments, balance reconciliation and cheque collection.
+    \item Coordinated internally with other departments (such as Customer Service, Logistics, etc.) to ensure on-time delivery.
+    \item Prepared project pipeline, monthly sales reports and updated sales activities.
+  \end{resume_list}
+
+  \headingBf{Fischer - Qatar}{Apr 2017 -- May 2021}
+  \headingIt{Key Project Engineer - Sales}{}
+  \begin{resume_list}
+    \item Played an integral role in new business pitches and hold responsibility for the effective on-boarding of new projects.
+    \item Focused on growing and developing existing projects, together with generating new business.
+    \item Acquired a thorough understanding of key project needs and requirements.
+    \item Expanded the relationships with existing customers by continuously proposing solutions that meet their objectives.
+    \item Acted as the key interface between the customer and all relevant divisions.
+    \item Ensured the correct products and services are delivered to customers in a timely manner.
+    \item Resolved any issues and problems faced by customers and deal with complaints to maintain trust.
+  \end{resume_list}
+
+ \headingBf{Unitech - Qatar}{Jan 2016 -- Mar 2017}
+  \headingIt{Sales Engineer}{}
+  \begin{resume_list}
+    \item Utilized sales skills to probe, build and cross-sell directly on site to customers through our product, market and service knowledge.
+    \item Ensured adherence to Unitech's quality philosophy while supporting the Company strategy and culture to exceed customers' expectations.
+    \item Performed marketing launches and promotions to customers and provided business solutions fully adapted to customers’ needs.
+    \item Handled customers financial issues related to Unitech, also negotiated and signed agreements “credit agreements and price agreements”
+  \end{resume_list}
+  
+  %-----------%
+  % Education %
+  %-----------%
+
+  \section{Education}
+
+  \headingBf{Gisma University of Applied Sciences - Germany}{} % Note: Adding year(s) exposes an implied age
+  \headingIt{Bachelor of Software Engineering - 2027}{}
+  \vspace{5pt}
+  \headingBf{Alexandria Higher Institute of Engineering and Technology - Egypt}{} % Note: Adding year(s) exposes an implied age
+  \headingIt{Bachelor of Electronics and Communications Engineering - 2014}{}
+  \vspace{5pt}
+  \headingBf{Training and Courses}{}
+  \begin{resume_list}
+    \item Professional Selling Skills \hspace{2pt}- from Human Training Consultants.
+    \item Basic Product Training - from Fischer Regional Training Center
+  \end{resume_list}
+
+  %----------------------------%
+  % Language Skills %
+  %----------------------------%
+
+  \section{Language Skills}
+
+  \headingBf{Arabic - Native Speaker}{}
+    \vspace{5pt}
+  \headingBf{English - Advanced C1}{}
+    \vspace{5pt}
+  \headingBf{French - Intermediate B1}{}
+    \vspace{5pt}
+  \headingBf{German - Beginner A1}{}
+
+\end{document}
